@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <title>PipBoy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/pipboy3.app.css"/>
+
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav">
+          <li class="navbar-item"> <a href="index.html" class="nav-link">STAT</a> </li>
+          <li class="navbar-item"> <a href="inv.html" class="nav-link">INV</a> </li>
+          <li class="navbar-item"> <a href="#" class="nav-link">DATA</a> </li>
+          <li class="navbar-item active"> <a href="map.html" class="nav-link">MAP</a> </li>
+          <li class="navbar-item"> <a href="#" class="nav-link">RADIO</a> </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div id="map"></div>
+
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?&callback=initMap&libraries=&v=weekly" defer></script>
+    <script>
+    "use strict";
+    let map, infoWindow;
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("map"), {
+        center: {
+          lat: -34.397,
+          lng: 150.644
+        },
+        zoom: 6,
+        disableDefaultUI: true
+      });
+
+
+
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          position => {
+            const pos = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            map.setCenter(pos);
+          },
+
+        );
+      }
+    }
+
+    </script>
+    <script src="js\jquery-3.5.1.min.js"></script>
+    <script src="js\bootstrap.min.js"></script>
+    <script src="js\pipboy.app.js"></script>
+
+  </body>
+
+</html>
