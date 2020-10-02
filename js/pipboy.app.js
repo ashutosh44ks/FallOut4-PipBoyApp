@@ -46,9 +46,8 @@ $(document).ready(function(){
   $('.item-list a').on('click', function(e){
     $('.item-list a').removeClass('active');
     $(e.currentTarget).addClass('active');
-
   })
 
 
-  
+
 })
